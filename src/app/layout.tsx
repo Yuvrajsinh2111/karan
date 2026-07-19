@@ -5,8 +5,8 @@ import "./globals.css";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Laxmichem Billing",
-  description: "Billing & records for Laxmichem Enterprise",
+  title: "TradeLedger",
+  description: "Billing & records ERP for trading businesses",
 };
 
 export const viewport: Viewport = {

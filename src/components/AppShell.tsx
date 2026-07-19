@@ -86,10 +86,10 @@ export default function AppShell({ children, title }: { children: React.ReactNod
       {/* Desktop sidebar */}
       <aside className="no-print hidden md:flex md:flex-col w-60 shrink-0 bg-white/80 backdrop-blur border-r border-slate-200/70 sticky top-0 h-screen">
         <div className="px-5 py-6 flex items-center gap-3">
-          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-sky-500 text-white flex items-center justify-center font-black text-lg shadow-lg shadow-indigo-600/25">L</span>
+          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-sky-500 text-white flex items-center justify-center font-black text-lg shadow-lg shadow-indigo-600/25">T</span>
           <div>
-            <div className="font-bold leading-tight">Laxmichem</div>
-            <div className="text-slate-400 text-[11px] font-medium tracking-wide uppercase">Billing</div>
+            <div className="font-bold leading-tight">TradeLedger</div>
+            <div className="text-slate-400 text-[11px] font-medium tracking-wide uppercase">ERP</div>
           </div>
         </div>
         <nav className="flex-1 px-3 space-y-1">
@@ -108,11 +108,16 @@ export default function AppShell({ children, title }: { children: React.ReactNod
             );
           })}
         </nav>
-        <button
-          onClick={() => supabase().auth.signOut()}
-          className="m-4 px-3.5 py-2.5 text-sm font-medium text-slate-500 rounded-xl border border-slate-200 hover:bg-slate-50 hover:text-slate-800 transition">
-          Sign out
-        </button>
+        <div className="m-4 space-y-2">
+          <button
+            onClick={() => supabase().auth.signOut()}
+            className="w-full px-3.5 py-2.5 text-sm font-medium text-slate-500 rounded-xl border border-slate-200 hover:bg-slate-50 hover:text-slate-800 transition">
+            Sign out
+          </button>
+          <p className="text-center text-[10px] text-slate-400">
+            Powered by <span className="font-semibold text-slate-500">Yuvrajsinh Borasiya</span>
+          </p>
+        </div>
       </aside>
 
       {/* Main */}

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f7fb;
+  --foreground: #0f172a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+}
+
+body {
+  background:
+    radial-gradient(1000px 500px at 100% -10%, rgba(79, 70, 229, 0.07), transparent 60%),
+    radial-gradient(800px 400px at -10% 0%, rgba(14, 165, 233, 0.06), transparent 55%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Modern card surface used across the app */
+.card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.08);
+}
+
+/* ---------- Print: only the bill sheet prints, exactly ---------- */
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .print-sheet {
+    box-shadow: none !important;
+    margin: 0 !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  @page { size: A4; margin: 10mm; }
+}
+
+/* Bill sheet typography — matches the sample documents; NEVER restyle this */
+.print-sheet {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+  background: #fff;
+  font-size: 12px;
+  line-height: 1.25;
+}
+.print-sheet table { border-collapse: collapse; width: 100%; }
+.print-sheet .bx { border: 1px solid #000; }
+.print-sheet td, .print-sheet th { vertical-align: top; }

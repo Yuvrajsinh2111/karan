@@ -1,4 +1,4 @@
-# Laxmichem Billing App
+# TradeLedger
 
 Mobile-first billing web app for chemical trading: Tax Invoices, Commission Bills, Purchase Orders — with records, filters, dashboard and backup. Built with Next.js + Tailwind + Supabase.
 

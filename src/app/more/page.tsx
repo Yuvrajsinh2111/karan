@@ -24,6 +24,10 @@ export default function MorePage() {
           className="w-full text-left card p-4 hover:bg-gray-50 text-rose-600 font-semibold">
           Sign out
         </button>
+        <p className="text-center text-[11px] text-slate-400 pt-4">
+          <span className="font-semibold">TradeLedger</span> · Powered by{" "}
+          <span className="font-semibold text-slate-500">Yuvrajsinh Borasiya</span>
+        </p>
       </div>
     </AppShell>
   );

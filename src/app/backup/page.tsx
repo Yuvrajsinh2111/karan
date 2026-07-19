@@ -70,7 +70,7 @@ export default function BackupPage() {
   async function exportJSON() {
     setBusy("json"); setMsg("");
     const data = await fetchAll((l) => setMsg("Fetching " + l));
-    download(`laxmichem-backup-${data.exported_at.slice(0, 10)}.json`,
+    download(`tradeledger-backup-${data.exported_at.slice(0, 10)}.json`,
       new Blob([JSON.stringify(data, null, 1)], { type: "application/json" }));
     await markBackedUp();
     setBusy(""); setMsg("Full backup downloaded. Keep it in Google Drive or a safe folder.");
@@ -101,7 +101,7 @@ export default function BackupPage() {
     XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(data.parties as object[]), "Parties");
     XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(data.products as object[]), "Products");
     const out = XLSX.write(wb, { type: "array", bookType: "xlsx" });
-    download(`laxmichem-bills-${new Date().toISOString().slice(0, 10)}.xlsx`,
+    download(`tradeledger-bills-${new Date().toISOString().slice(0, 10)}.xlsx`,
       new Blob([out], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
     await markBackedUp();
     setBusy(""); setMsg("Excel exported — share it with your accountant or keep as backup.");
@@ -112,7 +112,7 @@ export default function BackupPage() {
     setBusy("restore"); setMsg("");
     try {
       const data = JSON.parse(await file.text());
-      if (!data.bills || !data.parties) throw new Error("Not a valid Laxmichem backup file.");
+      if (!data.bills || !data.parties) throw new Error("Not a valid TradeLedger backup file.");
       // Chunked upserts so large backups (lakhs of rows) restore reliably
       const putChunked = async (table: string, rows: object[]) => {
         const CHUNK = 500;
